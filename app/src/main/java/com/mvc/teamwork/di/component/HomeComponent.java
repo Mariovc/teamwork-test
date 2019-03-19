@@ -1,6 +1,7 @@
 package com.mvc.teamwork.di.component;
 
 import com.mvc.teamwork.di.PerActivity;
+import com.mvc.teamwork.ui.main.MainActivity;
 import dagger.Component;
 
 /**
@@ -12,5 +13,7 @@ import dagger.Component;
 @PerActivity
 @Component(dependencies = ApplicationComponent.class)
 public interface HomeComponent {
+
+    void inject(MainActivity activity);
 
 }
