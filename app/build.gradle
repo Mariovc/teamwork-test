@@ -43,4 +43,7 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger2_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger2_version"
     implementation "com.android.support:recyclerview-v7:$supportV4_version"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 }
