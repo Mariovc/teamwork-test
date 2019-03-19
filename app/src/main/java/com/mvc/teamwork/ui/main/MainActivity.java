@@ -7,7 +7,7 @@ import android.util.Log;
 import com.mvc.teamwork.R;
 import com.mvc.teamwork.TeamworkApplication;
 import com.mvc.teamwork.di.component.DaggerHomeComponent;
-import com.mvc.teamwork.domain.entity.ProjectBO;
+import com.mvc.teamwork.entity.ProjectVO;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements MainMvpView {
     }
 
     @Override
-    public void addProjects(List<ProjectBO> projects) {
+    public void addProjects(List<ProjectVO> projects) {
         // TODO: 19/03/2019
         Log.d(TAG, "addProjects() called with: projects = [" + projects + "]");
     }

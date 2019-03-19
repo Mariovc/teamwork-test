@@ -1,12 +1,16 @@
 package com.mvc.teamwork.ui.main;
 
 import android.util.Log;
+import com.mvc.teamwork.domain.entity.ProjectBO;
 import com.mvc.teamwork.domain.usecase.ProjectUseCase;
+import com.mvc.teamwork.entity.ProjectVO;
 import com.mvc.teamwork.ui.base.BasePresenter;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author: Mario Velasco Casquero
@@ -29,8 +33,36 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                    projectBOS -> Log.d(TAG, "loadProjects: " + projectBOS)
+                    projectBOS -> {
+                        if (getMvpView() != null) {
+                            List<ProjectVO> projects = mapProjectList(projectBOS);
+                            getMvpView().addProjects(projects);
+                        }
+                    }
                     , throwable -> Log.e(TAG, "loadProjects: error", throwable));
-        // TODO: 19/03/2019 map to VO
+    }
+
+
+    private List<ProjectVO> mapProjectList(List<ProjectBO> projectBOList) {
+        List<ProjectVO> projects = new ArrayList<>();
+        for (ProjectBO projectBO : projectBOList) {
+            projects.add(mapProject(projectBO));
+        }
+        return projects;
+    }
+
+    private ProjectVO mapProject(ProjectBO projectBO) {
+        return new ProjectVO(
+                projectBO.getCreatedOn(),
+                projectBO.getDescription(),
+                projectBO.getEndDate(),
+                projectBO.getId(),
+                projectBO.getLastChangedOn(),
+                projectBO.getLogo(),
+                projectBO.getName(),
+                projectBO.getStarred(),
+                projectBO.getStartDate(),
+                projectBO.getStatus()
+        );
     }
 }

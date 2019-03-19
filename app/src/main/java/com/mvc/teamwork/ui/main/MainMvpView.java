@@ -1,6 +1,6 @@
 package com.mvc.teamwork.ui.main;
 
-import com.mvc.teamwork.domain.entity.ProjectBO;
+import com.mvc.teamwork.entity.ProjectVO;
 import com.mvc.teamwork.ui.base.MvpView;
 
 import java.util.List;
@@ -13,6 +13,6 @@ import java.util.List;
 
 public interface MainMvpView extends MvpView {
 
-    void addProjects(List<ProjectBO> projects); // TODO: 19/03/2019 change BOs by VO
+    void addProjects(List<ProjectVO> projects);
 
 }
