@@ -3,6 +3,7 @@
           package="com.mvc.teamwork">
 
     <application
+            android:name=".TeamworkApplication"
             android:allowBackup="true"
             android:fullBackupContent="true"
             android:icon="@mipmap/ic_launcher"

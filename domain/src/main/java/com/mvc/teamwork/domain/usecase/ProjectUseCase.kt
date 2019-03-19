@@ -14,7 +14,7 @@ import io.reactivex.Single
  */
 class ProjectUseCase : IProjectUseCase {
     override fun getProjects(): Single<List<ProjectBO>> {
-        return ProjectRepository().getProjects()
+        return ProjectRepository().getProjects() // TODO pass Project Repository as a dependency with dagger (Singleton)
             .map { projectList: ProjectListDTO -> mapProjectList(projectList.projects) }
     }
 

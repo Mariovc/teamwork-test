@@ -26,6 +26,7 @@ buildscript {
         convertergson_version           = '2.4.0'
         retrofit2rxjava2adapter_version = '1.0.0'
         okhttp_version                  = '3.14.0'
+        dagger2_version                  = '2.21'
     }
 
     repositories {
